@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<div class="container">
+   <div class="row">
+      <div class="col-md-offset-2">
+         <div class="card">
+          <div class= "card-body">  
+            <% @posts.each_with_index do |post, index| %>
+            <div class="card-header"><h6><%= index + 1 %><h6>
+            <div class="card-text">Posted By: <%= post.user.name.capitalize() %><br />
+               Published On: <%= post.created_at.strftime('%b, %d %Y') %></div>
+            <h4><%=link_to post.title, post %></h4>
+            <p><%= post.description%></p></div>
+            <% end %>
+         </div>
+      </div>
+   </div>
+</div>
+

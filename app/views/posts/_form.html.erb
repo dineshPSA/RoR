@@ -1,0 +1,34 @@
+<%= form_for @post, html: { multipart: true } do |form| %>
+  <% if post.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(post.errors.count, "error") %> prohibited this post from being saved:</h2>
+
+      <ul>
+        <% post.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+   <%= form.radio_button :is_public, false %> Private<br />
+    <%= form.radio_button :is_public, true %> Public<br />
+  <div class="field form-group">
+    <%= form.label :title, style: "display: block" %>
+    <%= form.text_field :title, class: "form-control" %>
+  </div>
+  <br />
+  <div class="field form-group">
+     <%= form.label :image %>
+     <%= form.file_field :image %>
+  </div>
+
+  <div class="field form-group">
+    <%= form.label :description, style: "display: block" %>
+    <%= form.text_area :description, class: "form-control" %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit :submit, class: 'btn btn-primary' %>
+  </div>
+  <br />
+<% end %>

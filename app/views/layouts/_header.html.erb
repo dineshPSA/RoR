@@ -1,0 +1,11 @@
+<div class="container">
+  <nav class="navbar navbar-expand-sm sticky-top navbar-light bg-light">
+    <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+   
+      <a class="navbar-brand" href="/"><i class="fa-brands fa-blogger fa-2x"></i> &nbsp;Home</a>
+      <a class="navbar-brand" href="posts/new"><i class="fa-solid fa-plus fa-1x"></i>&nbsp;New Post</a>
+      <%= link_to('Logout', destroy_user_session_path, :method => :delete, class: "btn btn-outline-danger")  if signed_in? %>
+    </div>
+  </nav>
+</div>
